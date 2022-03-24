@@ -1,0 +1,10 @@
+Tipo de Exame: fezes               Mês: Março             Paciente: Branqui
+Tipo de Exame: Fezes               Mês: Março             Paciente: Astro
+Tipo de Exame: Citologia               Mês: Março             Paciente: Iron
+Tipo de Exame: Citologia               Mês: Março             Paciente: Morena
+Tipo de Exame: Citologia               Mês: Março             Paciente: Morena
+Tipo de Exame: Citologia               Mês: Março             Paciente: Lorenzo
+Tipo de Exame: Fezes               Mês: Março             Paciente: Gael
+Tipo de Exame: Fezes               Mês: Março             Paciente: Molly
+Tipo de Exame: Fezes               Mês: Março             Paciente: FilhotesPanelis
+Tipo de Exame: Fezes               Mês: Março             Paciente: Ralph

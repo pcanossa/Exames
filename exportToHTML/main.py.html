@@ -1,0 +1,115 @@
+<html>
+<head>
+<title>main.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6897bb;}
+.s3 { color: #6a8759;}
+.s4 { color: #808080;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+main.py</font>
+</center></td></tr></table>
+<pre><span class="s0">def </span><span class="s1">valid(choice):</span>
+    <span class="s0">global </span><span class="s1">num</span>
+
+    <span class="s0">while True</span><span class="s1">:</span>
+       <span class="s0">try</span><span class="s1">:</span>
+        <span class="s1">num = int(input(choice))</span>
+        <span class="s0">if </span><span class="s1">num != </span><span class="s2">1 </span><span class="s0">and </span><span class="s1">num != </span><span class="s2">2 </span><span class="s0">and </span><span class="s1">num != </span><span class="s2">3</span><span class="s1">:</span>
+            <span class="s1">print (</span><span class="s3">'Opção inválida.'</span><span class="s1">)</span>
+        <span class="s0">else</span><span class="s1">:</span>
+            <span class="s0">break</span>
+       <span class="s0">except </span><span class="s1">ValueError:</span>
+           <span class="s1">print(</span><span class="s3">'Opção inválida.'</span><span class="s1">)</span>
+    <span class="s0">return </span><span class="s1">num</span>
+
+<span class="s0">def </span><span class="s1">criaarquivo(nomearquivo):</span>
+    <span class="s0">try</span><span class="s1">:</span>
+        <span class="s1">a = open(nomearquivo</span><span class="s0">, </span><span class="s3">'wt+'</span><span class="s1">)</span>
+        <span class="s1">a.close()</span>
+    <span class="s0">except</span><span class="s1">:</span>
+        <span class="s1">print (</span><span class="s3">'Ops! Algo deu errado...'</span><span class="s1">)</span>
+    <span class="s0">else</span><span class="s1">:</span>
+        <span class="s1">print (</span><span class="s3">'Arquivo {} criado com sucesso </span><span class="s0">\n</span><span class="s3">'</span><span class="s1">.format(nomearquivo))</span>
+
+
+<span class="s0">def </span><span class="s1">verarquivo(nomearquivo):</span>
+    <span class="s0">try</span><span class="s1">:</span>
+        <span class="s1">a = open(nomearquivo</span><span class="s0">, </span><span class="s3">'rt'</span><span class="s1">)</span>
+        <span class="s1">a.close()</span>
+    <span class="s0">except </span><span class="s1">FileNotFoundError:</span>
+        <span class="s0">return False</span>
+    <span class="s0">else</span><span class="s1">:</span>
+        <span class="s0">return True</span>
+
+<span class="s0">def </span><span class="s1">cadastrarjogo(nomearquivo</span><span class="s0">, </span><span class="s1">exame</span><span class="s0">, </span><span class="s1">mes</span><span class="s0">, </span><span class="s1">animal):</span>
+    <span class="s0">try</span><span class="s1">:</span>
+        <span class="s1">a = open(nomearquivo</span><span class="s0">, </span><span class="s3">'at'</span><span class="s1">)</span>
+    <span class="s0">except</span><span class="s1">:</span>
+        <span class="s1">print(</span><span class="s3">'Ops! Algo deu errado...'</span><span class="s1">)</span>
+    <span class="s0">else</span><span class="s1">:</span>
+        <span class="s1">a.write(</span><span class="s3">'Tipo de Exame: {}               Mês: {}             Paciente: {}</span><span class="s0">\n</span><span class="s3">'</span><span class="s1">.format(exame</span><span class="s0">, </span><span class="s1">mes</span><span class="s0">, </span><span class="s1">animal))</span>
+    <span class="s0">finally</span><span class="s1">:</span>
+        <span class="s1">a.close()</span>
+
+<span class="s0">def </span><span class="s1">lerjogo(nomearquivo):</span>
+    <span class="s0">try</span><span class="s1">:</span>
+        <span class="s1">a = open(nomearquivo</span><span class="s0">, </span><span class="s3">'rt'</span><span class="s1">)</span>
+    <span class="s0">except</span><span class="s1">:</span>
+        <span class="s1">print(</span><span class="s3">'Ops! Algo deu errado...'</span><span class="s1">)</span>
+    <span class="s0">else</span><span class="s1">:</span>
+        <span class="s1">print (a.read())</span>
+    <span class="s0">finally</span><span class="s1">:</span>
+        <span class="s1">a.close()</span>
+
+
+
+
+<span class="s4">#programa principal</span>
+<span class="s1">arquivo=</span><span class="s3">'exames.txt'</span>
+<span class="s0">if </span><span class="s1">verarquivo(arquivo):</span>
+    <span class="s1">print(</span><span class="s3">'Arquivo {} localizado...'</span><span class="s1">.format(arquivo))</span>
+<span class="s0">else</span><span class="s1">:</span>
+    <span class="s1">print(</span><span class="s3">'Arquivo não encontrado...'</span><span class="s1">)</span>
+    <span class="s1">criaarquivo(arquivo)</span>
+
+
+<span class="s0">while True</span><span class="s1">:</span>
+    <span class="s1">print(</span><span class="s3">'*-------------------------------------------------------------------------------------------*'</span><span class="s1">)</span>
+    <span class="s1">print(</span><span class="s3">'|                                           MENU                                            |'</span><span class="s1">)</span>
+    <span class="s1">print(</span><span class="s3">'*-------------------------------------------------------------------------------------------*'</span><span class="s1">)</span>
+    <span class="s1">print (</span><span class="s3">'1 -&gt; Cadastrar novo exame'</span><span class="s1">)</span>
+    <span class="s1">print (</span><span class="s3">'2 -&gt; Ver exames'</span><span class="s1">)</span>
+    <span class="s1">print (</span><span class="s3">'3 -&gt; Sair'</span><span class="s1">)</span>
+    <span class="s1">print(</span><span class="s3">' '</span><span class="s1">)</span>
+
+    <span class="s1">valid(</span><span class="s3">'Selecione a opção desejada: '</span><span class="s1">)</span>
+    <span class="s1">print(</span><span class="s3">''</span><span class="s1">)</span>
+    <span class="s1">choice=num</span>
+
+    <span class="s0">if </span><span class="s1">choice==</span><span class="s2">1</span><span class="s1">:</span>
+        <span class="s1">print (</span><span class="s3">'Cadastrando novo exame... </span><span class="s0">\n</span><span class="s3">'</span><span class="s1">)</span>
+        <span class="s1">exame=input(</span><span class="s3">'Tipo de Exame: '</span><span class="s1">)</span>
+        <span class="s1">mes=input(</span><span class="s3">'Mês: '</span><span class="s1">)</span>
+        <span class="s1">nomepaciente=input(</span><span class="s3">'Nome do paciente: '</span><span class="s1">)</span>
+        <span class="s1">cadastrarjogo(arquivo</span><span class="s0">, </span><span class="s1">exame</span><span class="s0">, </span><span class="s1">mes</span><span class="s0">, </span><span class="s1">nomepaciente)</span>
+
+    <span class="s0">elif </span><span class="s1">choice==</span><span class="s2">2</span><span class="s1">:</span>
+        <span class="s1">print (</span><span class="s3">'Acessando exames realizados... </span><span class="s0">\n</span><span class="s3">'</span><span class="s1">)</span>
+        <span class="s1">print(lerjogo(arquivo))</span>
+
+
+    <span class="s0">elif </span><span class="s1">choice==</span><span class="s2">3</span><span class="s1">:</span>
+        <span class="s1">print (</span><span class="s3">'Encerrando o programa...'</span><span class="s1">)</span>
+        <span class="s0">break</span>
+
+</pre>
+</body>
+</html>
